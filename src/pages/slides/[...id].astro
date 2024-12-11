@@ -1,0 +1,20 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import SlidesLayout from "@layouts/SlidesLayout.astro";
+
+export async function getStaticPaths() {
+  const slides = (await getCollection("slides"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return slides.map((slide) => ({
+    params: { id: slide.id },
+    props: slide,
+  }));
+}
+type Props = CollectionEntry<"slides">;
+
+const slide = Astro.props;
+---
+
+<SlidesLayout title={slide.data.title} description={slide.data.description} lang="en", slide={slide}>
+</SlidesLayout>
