@@ -30,6 +30,7 @@
   "devDependencies": {
     "@playwright/test": "1.49.1",
     "@tailwindcss/typography": "0.5.15",
+    "@types/reveal.js": "^5.0.4",
     "dotenv": "^16.4.5",
     "pagefind": "1.2.0",
     "prettier": "3.4.2",
