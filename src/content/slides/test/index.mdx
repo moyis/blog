@@ -1,0 +1,36 @@
+---
+title: "Test"
+description: "test"
+date: "2024-12-11"
+---
+import { Image } from "astro:assets";
+import shirtscannerImage from "./shirtscanner-search.avif";
+
+<section>
+# Your slide deck
+
+Start writing!
+
+HELLO!
+
+</section>
+
+<section>
+## slide 2
+
+WORLD!
+
+</section>
+
+<section>
+Here I should have an Image
+
+<Image
+  src={shirtscannerImage}
+  alt="A screenshot of Shirtscanner's search page with results for the query Argentina"
+  widths={["320", "768", "1200", shirtscannerImage.width]}
+/>
+</section>
+<section>
+Fin.
+</section>
