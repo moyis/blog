@@ -21,6 +21,8 @@
     "astro": "^5.1.1",
     "astro-pagefind": "^1.7.0",
     "clsx": "^2.1.1",
+    "highlight.js": "11.10.0",
+    "reveal.js": "5.1.0",
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2"
