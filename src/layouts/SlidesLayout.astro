@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 import "reveal.js/dist/reset.css";
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/black.css";
@@ -53,3 +54,41 @@ const { Content } = await render(slide)
     deck.initialize();
   }
 </script>
+=======
+import 'reveal.js/dist/reset.css'
+import 'reveal.js/dist/reveal.css';
+import 'reveal.js/dist/theme/black.css';
+import 'highlight.js/styles/base16/material-darker.css';
+
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <slot />
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    import Reveal from "reveal.js";
+    import RevealNotes from "reveal.js/plugin/notes/notes.esm.js";
+    import RevealMarkdown from "reveal.js/plugin/markdown/markdown.esm.js";
+    import RevealHighlight from "reveal.js/plugin/highlight/highlight.esm.js";
+    
+    const reveal = document.querySelector(".reveal");
+    if(reveal) {
+        const deck = new Reveal({
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        });
+        deck.initialize();
+    }
+</script>
+>>>>>>> eec7cea (feature: test astro slides)
