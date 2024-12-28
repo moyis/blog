@@ -24,4 +24,14 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { blog, projects };
+const slides = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: "./src/content/slides" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    draft: z.boolean().optional(),
+  }),
+});
+
+export const collections = { blog, projects, slides  };
