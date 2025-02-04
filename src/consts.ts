@@ -11,7 +11,7 @@ export const SITE: Site = {
 
 export const HOME: Metadata = {
   TITLE: "Home",
-  DESCRIPTION: "Astro Micro is an accessible theme for Astro.",
+  DESCRIPTION: "A passionate developer sharing tech insights and innovative projects.",
 };
 
 export const BLOG: Metadata = {
@@ -28,7 +28,7 @@ export const PROJECTS: Metadata = {
 export const SOCIALS: Socials = [
   {
     NAME: "GitHub",
-    HREF: "https://github.com/MoyaF",
+    HREF: "https://github.com/moyis",
   },
   {
     NAME: "LinkedIn",
