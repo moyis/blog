@@ -39,7 +39,7 @@ export const SOCIALS: Socials = [
 export const WORK_EXPERIENCE: WorkExperience = [
   {
     company: "Ahold Delhaize",
-    role: "Technical Lead",
+    role: "Software Engineer",
     technologies: ["Kotlin", "Spring", "MongoDB", "Kafka"],
     description:
       "At Ahold Delhaize, I led the modernization of the workforce management tool, building a new integration using modern languages and techniques. I spearheaded efforts to improve code quality, promoting good coding practices and a test-driven development mindset.\nI played a key role in helping the team adopt agile methodologies, improving meeting efficiency and sharing agile knowledge to streamline processes. By fostering close collaboration between the business and development teams, I enabled better requirements gathering and greater ownership of projects.",
@@ -49,7 +49,7 @@ export const WORK_EXPERIENCE: WorkExperience = [
   },
   {
     company: "Routescanner",
-    role: "Senior Software Engineer",
+    role: "Software Engineer",
     technologies: [
       "Kotlin",
       "Spring",
