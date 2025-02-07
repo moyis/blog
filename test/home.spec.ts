@@ -27,7 +27,7 @@ test("has a link that redirects to my GitHub profile", async ({ page }) => {
   await expect(link).toBeVisible();
   await link.click();
   const gitHubPage = await gitHubPromise;
-  await expect(gitHubPage).toHaveURL("https://github.com/MoyaF");
+  await expect(gitHubPage).toHaveURL("https://github.com/moyis");
 });
 
 test("has a link that redirects to my email address", async ({ page }) => {
