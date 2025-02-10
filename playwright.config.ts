@@ -30,7 +30,7 @@ export default defineConfig({
         command: "bun run build && bun run preview",
         url: "http://localhost:4321",
         reuseExistingServer: true,
-        timeout: 5000,
+        timeout: 15000,
       }
     : undefined,
 });

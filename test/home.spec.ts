@@ -35,7 +35,7 @@ test("has a link that redirects to my email address", async ({ page }) => {
   const emailTo = page.getByLabel("Email Fausto Moya");
   await expect(emailTo).toHaveAttribute(
     "href",
-    "mailto:faustomoya99@gmail.com",
+    "mailto:hola@moyis.dev",
   );
 });
 
