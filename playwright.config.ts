@@ -13,7 +13,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: "html",
   use: {
-    baseURL: process.env.CI ? process.env.BASE_URL : "http://localhost:4321",
+    baseURL: process.env.CI ? process.env.BASE_URL : "http://localhost:4321/",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
   },
@@ -28,9 +28,9 @@ export default defineConfig({
   webServer: !process.env.CI
     ? {
         command: "bun run build && bun run preview",
-        url: "http://localhost:4321",
+        url: "http://localhost:4321/",
         reuseExistingServer: true,
-        timeout: 15000,
+        timeout: 60000,
       }
     : undefined,
 });
