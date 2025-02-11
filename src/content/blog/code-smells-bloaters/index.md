@@ -1,7 +1,7 @@
 ---
 title: "Code smells: Los 'bloaters'"
 description: "Descubre y elimina los 'bloaters' en tu código."
-date: "2024-11-20"
+date: "2025-02-11"
 draft: false
 ---
 
@@ -135,18 +135,49 @@ Esta estrategia no solo facilita el entendimiento de nuestro método `processInv
 
 
 ## Data Clumps
-Data Clumps are repeated list of fields, parameters, or both. Sometimes duplication is not apparent, as the names are different, yet their intent is the same.
-Several Rename refactorings may be necessary to make the Data Clumps obvious
 
-### ¿Cómo reconocerlo?
+Los *Data Clumps* son grupos de datos que aparecen repetidamente en distintos lugares del código, ya sea como listas de campos en clases o como parámetros en múltiples métodos. A menudo, estos grupos de datos comparten un propósito común, pero su relación puede no ser obvia a primera vista debido a diferencias en los nombres de las variables. Un patrón recurrente en estos casos es la sensación de *déjà vu* cuando revisamos los parámetros de nuestros métodos o atributos en distintas partes del código.
 
-- deja vu in field lists or parameter lists of both
+Supongamos que en nuestra aplicación
 
-### ¿Cómo solucionarlo?
+```java
+record Shape(
+  int red,
+  int green,
+  int blue,
+  ... // Otros atributos
+)
+```
+```java
+void print(int r, int g, int b, String text) {
+  ... // Lógica
+}
+```
 
-- Introduce Parameter Object
-- Extract Class
-- Preserve Whole Object
+Si estos mismos atributos (rojo, verde y azul) aparecen en varias clases o métodos, como es nuestro caso, estamos duplicando código innecesariamente.
+
+Para solucionar esto, podemos extraerlos y crear una nueva clase Color y usarla 
+```java
+record Color(
+  int red,
+  int green,
+  int blue
+)
+```
+```java
+record Shape(
+  Color color,
+  ... // Otros atributos
+)
+```
+```java
+void print(Color color, String text) {
+  ... // Lógica
+}
+```
+
+De esta manera evitamos repetir los mismos tres atributos en múltiples clases. Ademas `Color` es una representación más explícita de lo que significan esos valores. En caso de querer cambiar la forma en que representamos colores (por ejemplo, agregar un valor de transparencia), solo debemos modificar `Color` en un único lugar. Por ultimo, al ser un tipo especifico, `Color` puede contener lógica útil, como conversión a formato hexadecimal.
+
 
 ## Conditional Complexity
 
@@ -165,4 +196,5 @@ Complex conditional statements often grow from a simple if. We should be critica
 ## Referencias
 
 - <a href="https://martinfowler.com/books/refactoring.html" target="_blank">Refactoring by Martin Fowler, with Kent Beck - Second Edition 2018</a>
-- <a href="https://acairns.co.uk/posts/primitive-obsession" target="_blank">Primitive Obsession - Andrew Cairns</a>
+- <a href="https://acairns.co.uk/posts/primitive-obsession" target="_blank">Primitive Obsession by Andrew Cairns</a>
+- <a href="https://www.arhohuttunen.com/refactoring/" target="_blank">Refactoring by Arho Huttunen</a>
