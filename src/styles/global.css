@@ -34,6 +34,7 @@
     overflow-y: auto;
     color-scheme: light;
     scroll-padding-top: 100px;
+    scroll-behavior: smooth;
   }
 
   html.dark {
