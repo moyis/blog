@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import { SLIDES } from "@consts";
+
+const slides = (await getCollection("slides"))
+  .filter((slide) => !slide.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title={SLIDES.TITLE} description={SLIDES.DESCRIPTION} lang="en">
+  <Container>
+    <aside data-pagefind-ignore>
+      <div class="space-y-10">
+        <h1 class="animate text-3xl font-semibold text-black dark:text-white">
+          Slides
+        </h1>
+        <ul class="animate not-prose flex flex-col gap-4">
+          {
+            slides.map((slide) => (
+              <li>
+                <ArrowCard entry={slide} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </aside>
+  </Container>
+</Layout>
