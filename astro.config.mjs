@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import pagefind from "astro-pagefind";
@@ -15,5 +15,24 @@ export default defineConfig({
     shikiConfig: {
       theme: "css-variables",
     },
+  },
+  experimental: {
+    fonts: [
+      {
+        provider: fontProviders.fontsource(),
+        name: "Geist Sans",
+        cssVariable: "--font-blog",
+        weights: ["400", "500", "600"],
+        fallbacks: ["ui-sans-serif", "system-ui", "sans-serif", 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji']
+      },
+      {
+        provider: fontProviders.fontsource(),
+        name: "Geist Mono",
+        cssVariable: "--font-code",
+        weights: ["400", "500", "600"],
+        fallbacks: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", 'Liberation Mono', 'Courier New', "monospace"]
+
+      }
+    ],
   },
 });
