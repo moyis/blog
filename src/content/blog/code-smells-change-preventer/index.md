@@ -1,7 +1,7 @@
 ---
 title: "Code smells: 'change preventer'"
 description: "Descubre y elimina los 'bloaters' en tu código."
-date: "2025-02-11"
+date: "2025-04-23"
 draft: false
 tags:
   - code-smells
