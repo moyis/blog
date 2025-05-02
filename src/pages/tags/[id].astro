@@ -23,7 +23,12 @@ const sortedPosts = posts.sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
 );
 ---
-<Layout title={`Tag: ${id}`} description={`Posts with the tag: ${id}`}, lang="es">
+
+<Layout
+  title={`Tag: ${id}`}
+  description={`Posts with the tag: ${id}`}
+  lang="es"
+>
   <Container>
     <div class="space-y-10" data-pagefind-ignore>
       <BackToPrevious href="/tags"> All tags </BackToPrevious>

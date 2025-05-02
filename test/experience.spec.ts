@@ -9,7 +9,9 @@ test("should display the Work Experience heading", async ({ page }) => {
 
 test("should display my experience at Ahold Delhaize", async ({ page }) => {
   await page.goto("/experience");
-  await expect(page.getByText("Software Engineer @ Ahold Delhaize")).toBeVisible();
+  await expect(
+    page.getByText("Software Engineer @ Ahold Delhaize"),
+  ).toBeVisible();
 });
 
 test("should display my experience at Routescanner", async ({ page }) => {

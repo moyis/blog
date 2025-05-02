@@ -37,7 +37,7 @@ public record Person(
 
 A primera vista, este diseño parece claro y directo, pero si lo analizamos con más detalle, encontramos algunos problemas:
 
-- Al tener muchos atributos de tipo `String`, cualquier valor podría usarse para construir este objeto. Incluso 
+- Al tener muchos atributos de tipo `String`, cualquier valor podría usarse para construir este objeto. Incluso
   podríamos intercambiar el orden de los argumentos y el código seguiría compilando sin errores.
 
 ```java
@@ -134,7 +134,8 @@ public void processInvoice(Customer customer, List<Item> items, double discountR
   }
 }
 ```
-El método `processInvoice()` tiene múltiples responsabilidades:  calcular el total, aplicar un descuento,
+
+El método `processInvoice()` tiene múltiples responsabilidades: calcular el total, aplicar un descuento,
 verificar el saldo del cliente, procesar el pago e imprimir un resumen del pedido. Y todo esto, dentro de un único bloque de código.
 Este enfoque puede parecer sencillo al principio, pero a medida que un proyecto crece, este tipo de métodos largos se vuelve cada vez más
 difícil de mantener y de probar.
@@ -156,26 +157,25 @@ public void processInvoice(Customer customer, List<Item> items, double discountR
   orderSummaryPrinter.print(customer, items);
 }
 ```
+
 Esta estrategia no solo facilita la comprensión de nuestro método `processInvoice()`, sino que también simplifica los tests.
 Ahora podemos crear pruebas específicas para `priceCalculator.calculate()`, `customer.pay()` y `orderSummaryPrinter.print()` de forma independiente.
 Al refactorizar nuestro código de esta manera, logramos métodos más cortos, más fáciles de entender, probar y mantener.
 
 ## Data Clumps
 
-
-
-
 Los **Data Clumps** son conjuntos de datos que aparecen repetidamente en distintos lugares del código.
 Esto puede ser como listas de campos en clases o como parámetros en múltiples métodos.
 Cuando los mismos conjuntos de datos se repiten en diversas secciones del programa, cualquier cambio en su estructura
 requiere modificaciones en varios lugares, lo que incrementa la posibilidad de errores.
 
-  A menudo, estos datos comparten un propósito común, a
+A menudo, estos datos comparten un propósito común, a
 
 Una señal clara de la presencia de **Data Clumps** es la sensación de **_déjà vu_** al examinar los parámetros de distintos métodos o los atributos de varias clases.
 A menudo, estos datos comparten un propósito común, aunque su relación no sea evidente debido a diferencias en los nombres de las variables.
 
 Consideremos la siguiente estructura en nuestra aplicación como ejemplo:
+
 ```java
 record Shape(
   int red,
@@ -190,6 +190,7 @@ void print(int r, int g, int b, String text) {
   ... // Lógica
 }
 ```
+
 Si estos mismos atributos (rojo, verde y azul) aparecen en varias clases o métodos, estamos duplicando código
 innecesariamente, lo que dificulta la coherencia y la evolución del sistema.
 
@@ -305,7 +306,7 @@ double getPrice(Product product, Client client) {
 ```
 
 Las reglas de descuento ahora están distribuidas en clases separadas, cada una con una responsabilidad única.
-Si bien **inicialmente puede parecer que tenemos más líneas de código,**  delegamos la lógica de cálculo del descuento a la implementación concreta de `Discount` que corresponda al cliente.
+Si bien **inicialmente puede parecer que tenemos más líneas de código,** delegamos la lógica de cálculo del descuento a la implementación concreta de `Discount` que corresponda al cliente.
 Esto nos permite quitar o agregar nuevos descuentos sin necesidad de tocar el método `getPrice()`, **ganando flexibilidad y facilitando el mantenimiento futuro.**
 
 ## Referencias
