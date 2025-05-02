@@ -19,7 +19,7 @@ export default defineConfig({
   experimental: {
     fonts: [
       {
-        provider: fontProviders.fontsource(),
+        provider: fontProviders.google(),
         name: "Geist Sans",
         cssVariable: "--font-blog",
         weights: ["400", "500", "600"],
@@ -34,7 +34,7 @@ export default defineConfig({
         ],
       },
       {
-        provider: fontProviders.fontsource(),
+        provider: fontProviders.google(),
         name: "Geist Mono",
         cssVariable: "--font-code",
         weights: ["400", "500", "600"],
