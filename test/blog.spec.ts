@@ -17,7 +17,6 @@ test("should redirect to blog post", async ({ page }) => {
   const randomIndex = Math.floor(Math.random() * count);
   const blogPost = blogPosts.nth(randomIndex);
   blogPost.click();
-  const blogPostUrl =
-    (await blogPost.getByRole("link").getAttribute("href")) ?? "";
+  const blogPostUrl = await blogPost.getByRole("link").getAttribute("href") ?? "";
   await expect(page).toHaveURL(blogPostUrl);
 });

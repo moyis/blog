@@ -17,7 +17,6 @@ test("should redirect to project", async ({ page }) => {
   const randomIndex = Math.floor(Math.random() * count);
   const project = projects.nth(randomIndex);
   project.click();
-  const projectUrl =
-    (await project.getByRole("link").getAttribute("href")) ?? "";
+  const projectUrl = await project.getByRole("link").getAttribute("href") ?? "";
   await expect(page).toHaveURL(projectUrl);
 });
