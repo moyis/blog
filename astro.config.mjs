@@ -8,7 +8,7 @@ import opengraphImages, { presets } from "astro-opengraph-images";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://moyis.dev",
+  site: "https://blog-git-feature-og-images-moyis.vercel.app",
   integrations: [sitemap(), mdx(), pagefind(), opengraphImages({
     options:{
       fonts: [
