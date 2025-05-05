@@ -8,7 +8,7 @@
         "@astrojs/mdx": "4.2.6",
         "@astrojs/rss": "4.0.11",
         "@astrojs/sitemap": "3.3.1",
-        "@fontsource/geist-mono": "5.2.5",
+        "@fontsource/geist-mono": "5.2.6",
         "@fontsource/geist-sans": "5.2.5",
         "@tailwindcss/vite": "4.1.5",
         "astro": "5.7.10",
@@ -150,7 +150,7 @@
 
     "@eslint/plugin-kit": ["@eslint/plugin-kit@0.2.8", "", { "dependencies": { "@eslint/core": "^0.13.0", "levn": "^0.4.1" } }, "sha512-ZAoA40rNMPwSm+AeHpCq8STiNAwzWLJuP8Xv4CHIc9wv/PSuExjMrmjfYNj682vW0OOiZ1HKxzvjQr9XZIisQA=="],
 
-    "@fontsource/geist-mono": ["@fontsource/geist-mono@5.2.5", "", {}, "sha512-7/r9opukyQ3jkAqfhIRnhodWlAc8yVkHogDUAFqBeBSYNpvlpouLJysYO5cIpqyB/lHrazxChiC73Oj8K3+sZg=="],
+    "@fontsource/geist-mono": ["@fontsource/geist-mono@5.2.6", "", {}, "sha512-I3hsRP+8Gmhk35cwlPAR4w5xqk7e5pro2F1o51ZmB+lN+dPcwN3jYHKN+u0E5AMuiQKpTdkrqfEpvBjzQax3cQ=="],
 
     "@fontsource/geist-sans": ["@fontsource/geist-sans@5.2.5", "", {}, "sha512-anllOHyJbElRs9fV15TeDRqAeb1IKm4bSknPl6ZMoyPTx1BBy7logudcUwpNjmQLkzn4Q0JGQLRCUKJYoyST6A=="],
 
