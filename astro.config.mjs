@@ -4,7 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 import pagefind from "astro-pagefind";
 import { defineConfig, fontProviders } from "astro/config";
 
-import opengraphImages, { presets } from "astro-opengraph-images";
+import opengraphImages from "astro-opengraph-images";
+import { ogImage } from "./src/components/OgImage";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://moyis.dev",
@@ -25,7 +27,7 @@ export default defineConfig({
           },
         ],
       },
-      render: presets.blackAndWhite,
+      render: ogImage,
     }),
     ,
   ],
