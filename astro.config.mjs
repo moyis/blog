@@ -4,12 +4,31 @@ import tailwindcss from "@tailwindcss/vite";
 import pagefind from "astro-pagefind";
 import { defineConfig, fontProviders } from "astro/config";
 
-import opengraphImages from "astro-opengraph-images";
-
+import opengraphImages, { presets } from "astro-opengraph-images";
 // https://astro.build/config
 export default defineConfig({
   site: "https://moyis.dev",
-  integrations: [sitemap(), mdx(), pagefind(), opengraphImages()],
+  integrations: [
+    sitemap(),
+    mdx(),
+    pagefind(),
+    opengraphImages({
+      options: {
+        fonts: [
+          {
+            name: "Roboto",
+            weight: 400,
+            style: "normal",
+            data: fs.readFileSync(
+              "node_modules/@fontsource/geist-sans/files/geist-sans-latin-400-normal.woff",
+            ),
+          },
+        ],
+      },
+      render: presets.blackAndWhite,
+    }),
+    ,
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
