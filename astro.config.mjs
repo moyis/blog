@@ -4,10 +4,12 @@ import tailwindcss from "@tailwindcss/vite";
 import pagefind from "astro-pagefind";
 import { defineConfig, fontProviders } from "astro/config";
 
+import opengraphImages from "astro-opengraph-images";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://moyis.dev",
-  integrations: [sitemap(), mdx(), pagefind()],
+  integrations: [sitemap(), mdx(), pagefind(), opengraphImages()],
   vite: {
     plugins: [tailwindcss()],
   },
