@@ -5,7 +5,7 @@ date: "2025-02-11"
 draft: false
 tags:
   - code-smells
-  - bloaters
+  - bloater
 ---
 
 Cuando desarrollamos software, solemos recurrir a tipos de datos básicos como String, int o Map para modelar información. Sin embargo, aunque estos tipos están siempre disponibles, **abusar de ellos puede ocultar la intención de nuestro código y dificultar su mantenimiento**. Este problema se conoce como **Primitive Obsession**.
