@@ -8,11 +8,11 @@ tags:
   - bloaters
 ---
 
-Cuando desarollamos, tenemos a nuestra disposición tipos de datos básicos como `String`, `int` o incluso `Map`.
-Sin embargo, que los tengamos disponibles no significa que debamos utilizarlos para todo. El **uso excesivo de tipos primitivos**,
-también conocido como **Primitive Obsession**, ocurre cuando usamos estas estructuras de datos genéricas en lugar de encapsular conceptos en clases específicas.
+Cuando desarrollamos software, solemos recurrir a tipos de datos básicos como String, int o Map para modelar información. Sin embargo, aunque estos tipos están siempre disponibles, **abusar de ellos puede ocultar la intención de nuestro código y dificultar su mantenimiento**. Este problema se conoce como **Primitive Obsession**.
 
-Para entender mejor este problema, veamos un ejemplo común: una clase `Person` que guarda información personal:
+El **Primitive Obsession** ocurre cuando usamos tipos primitivos o genéricos para representar conceptos complejos o con reglas de negocio propias. Esto puede llevarnos a errores sutiles, pérdida de expresividad o código duplicado.
+
+Veamos la clase `Person`, que almacena información personal:
 
 ```java
 public record Person(
@@ -26,26 +26,23 @@ public record Person(
 }
 ```
 
-A primera vista, este diseño parece claro y directo, pero si lo analizamos con más detalle, encontramos algunos problemas:
+A primera vista, este diseño parece correcto. Sin embargo, si lo analizamos en profundad, podemos ver algunos problemas:
 
-- Al tener muchos atributos de tipo `String`, cualquier valor podría usarse para construir este objeto. Incluso
-  podríamos intercambiar el orden de los argumentos y el código seguiría compilando sin errores.
+- **Falta de agrupación semántica**: Los atributos `street`, `zipCode`, `city` y `country` representan una dirección, pero están dispersos en la clase.
+
+- **Duplicación de lógica:** Cada vez que necesitemos validar el formato del `email` o del `zipCode`, deberemos repetir la lógica o crear utilidades externas.
+
+- **Falta de validación:** Cualquier valor puede usarse para construir un objeto Person. Por ejemplo, podríamos intercambiar el id y el email sin que el compilador lo detecte.
 
 ```java
   var person1 = new Person("abcde-fgh", "Fulano", "fulano@example.com", ...);
   var person2 = new Person("fulano@example.com", "Fulano", "abcde-fgh", ...);
 ```
 
-- Cada vez que necesitemos asegurarnos de que el `email` es válido o que el `zipCode` cumple un formato específico, tendremos
-  que duplicar esa lógica en distintos lugares o crear una clase utilitaria `Validator` para manejar esa funcionalidad.
+Cada vez que necesitemos asegurarnos de que el `email` es válido o que el `zipCode` cumple un formato específico, tendremos que duplicar esa lógica en distintos lugares o crear una clase utilitaria `Validator` para manejar esa funcionalidad. Por último, los atributos `street`, `zipCode`, `city` y `country`, engloban un mismo concepto (`Address`) y, seguramente, se utilizan juntos.
 
-- Hay atributos (`street`, `zipCode`, `city` y `country`) que pareciera hacen referencia a un mismo concepto
-  (`Address`), pero están al mismo nivel de los demás.
 
-Para solucionar estos problemas, podemos encapsular conceptos en clases propias, una técnica conocida como **Value Classes**.
-Este enfoque no solo mejora la claridad del código, sino que también simplifica su mantenimiento.
-
-Así es como podemos refactorizar nuestro ejemplo:
+Podemos mejorar nuestro ejemplo utilizando una técnica conocida como **Value Objects**. La idea  es encapsular conceptos relevantes en clases específicas. De esta manera, no solo revelamos la intención de nuestro código, sino que también nos abre las puertas a otras mejoras.
 
 ```java
 public record Person(PersonId id, String name, Email email, Address address) {
@@ -83,9 +80,12 @@ public record ZipCode(String zipCode) {
 }
 ```
 
-- Ahora, cada atributo de nuestra clase `Person` tiene un **tipo específico**, lo que evita confusiones y nos protege en
-  tiempo de compilación contra errores al pasar valores incorrectos.
-- `email` y `zipCode` validan automáticamente que los datos sean correctos, eliminando la necesidad de repetir
-  comprobaciones en distintas partes del código.
-- `street`, `zipCode`, `city` y `country` ahora forman parte de una clase `Address`, agrupando estos conceptos
-  relacionados en una única entidad.
+Luego del refactor, 
+
+- **Mayor seguridad en tiempo de compilación:** El compilador detectará errores si intentamos asignar un tipo incorrecto a un campo (por ejemplo, pasar un `Email` donde se espera un `PersonId`).
+
+- **Validación centralizada:** Las reglas de negocio y validaciones se definen una sola vez, dentro de la clase correspondiente, evitando posibles inconsistencias.
+
+**Código más expresivo y mantenible:** Los tipos específicos comunican mejor la intención del código, facilitando su lectura y mantenimiento.
+   
+**Agrupación semántica:** Conceptos relacionados, como la dirección, se encapsulan en una sola clase.
