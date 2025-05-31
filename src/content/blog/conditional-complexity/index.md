@@ -4,8 +4,8 @@ description: "Aprende a identificar y reducir la complejidad condicional en tu c
 date: "2025-04-23"
 draft: false
 tags:
-  - code-smells
-  - bloaters
+  - code-smell
+  - bloater
 ---
 
 Este problema surge cuando en nuestro código es difícil de entender debido a la abundancia de estructuras condicionales

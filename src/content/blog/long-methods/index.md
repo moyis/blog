@@ -4,8 +4,8 @@ description: "Descubre cómo detectar y reducir métodos excesivamente largos, f
 date: "2025-02-22"
 draft: false
 tags:
-  - code-smells
-  - bloaters
+  - code-smell
+  - bloater
 ---
 
 Como su nombre lo indica, **Long Method** (Método Largo en ingles) surge cuando un método tiene demasiadas líneas de código.

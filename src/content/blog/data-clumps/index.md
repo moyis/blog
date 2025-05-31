@@ -5,7 +5,7 @@ date: "2025-02-22"
 draft: false
 tags:
   - code-smells
-  - bloaters
+  - bloater
 ---
 
 Los **Data Clumps** son conjuntos de datos que aparecen repetidamente en distintos lugares del código.

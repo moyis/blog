@@ -4,7 +4,7 @@ description: "Descubre cómo los 'magic numbers' afectan la legibilidad del cód
 date: "2025-04-26"
 draft: false
 tags:
-  - code-smells
+  - code-smell
   - change-preventer
 ---
 
@@ -17,7 +17,7 @@ double calculateFinalPrice(double price) {
 }
 ```
 
-En este ejemplo, ¿qué significan `3.5` y `0.21`? ¿Representan el costo de envío y el IVA? El código no lo deja claro, lo que puede generar confusión y errores.
+En este ejemplo, ¿Qué significan `3.5` y `0.21`? ¿Representan el costo de envío y el IVA? El código no lo deja claro, lo que puede generar confusión y errores.
 
 La solución más sencilla es **darle un nombre significativo** a cada número, utilizando constantes:
 
