@@ -1,6 +1,6 @@
 ---
-title: "Primitive Obsession"
-description: "Descubre cómo evitar el code smell 'Primitive Obsession' en Java. Aprende a identificarlo y refactorizar tu código. Ejemplos prácticos y consejos para desarrolladores."
+title: "Primitive Obsession: Qué es y cómo evitarlo"
+description: "Descubre qué es el Primitive Obsession en desarrollo de software y aprende a evitarlo usando Value Objects para lograr código más seguro, expresivo y mantenible."
 date: "2025-02-11"
 draft: false
 tags:

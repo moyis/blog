@@ -1,6 +1,6 @@
 ---
-title: "Conditional Complexity"
-description: "Aprende a identificar y reducir la complejidad condicional en tu código. Mejora la legibilidad, el mantenimiento y la escalabilidad de tus proyectos eliminando estructuras condicionales anidadas."
+title: "Complejidad Condicional: Cómo Simplificar tu Código"
+description: "Descubre cómo reducir la complejidad condicional en tu código usando el Patrón Estrategia. Mejora la legibilidad, mantenimiento y flexibilidad de tu código."
 date: "2025-04-23"
 draft: false
 tags:

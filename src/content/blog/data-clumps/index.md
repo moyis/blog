@@ -1,6 +1,6 @@
 ---
-title: "Data Clumps"
-description: "Aprende qué son los 'data clumps', cómo identificarlos y refactorizarlos para mejorar la calidad y mantenibilidad de tu código."
+title: "Data Clumps: Qué son y cómo eliminarlos en tu código"
+description: "Descubre qué son los Data Clumps, por qué dificultan el mantenimiento del código y aprende a eliminarlos con ejemplos prácticos y refactorización efectiva."
 date: "2025-02-22"
 draft: false
 tags:

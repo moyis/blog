@@ -1,6 +1,6 @@
 ---
 title: "Testea el 'qué', no el 'cómo'"
-description: "Estructura para definir pruebas centradas en comportamiento."
+description: "Descubre cómo estructurar tests claros y robustos con Given-When-Then y Arrange-Act-Assert. Aprende a enfocar tus pruebas en el comportamiento y mejora la calidad del código"
 date: "2024-11-01"
 draft: false
 tags:

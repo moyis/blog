@@ -1,6 +1,6 @@
 ---
-title: "Magic Number"
-description: "Descubre cómo los 'magic numbers' afectan la legibilidad del código y aprende buenas prácticas para identificarlos y eliminarlos en tus proyectos de software."
+title: "Magic Numbers en Programación: Qué Son y Cómo Evitarlos"
+description: "Descubre qué son los magic numbers en programación, por qué dificultan el mantenimiento del código y aprende buenas prácticas para evitarlos fácilmente."
 date: "2025-04-26"
 draft: false
 tags:

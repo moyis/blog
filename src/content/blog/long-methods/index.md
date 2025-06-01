@@ -1,6 +1,6 @@
 ---
-title: "Long Methods"
-description: "Descubre cómo detectar y reducir métodos excesivamente largos, facilitando la comprensión, el mantenimiento y la evolución de tu software."
+title: "Long Method: Cómo Refactorizar Métodos Largos"
+description: "Descubre qué es el Long Method, sus riesgos y cómo refactorizar métodos largos para mejorar la claridad, pruebas y mantenimiento del código"
 date: "2025-02-22"
 draft: false
 tags:

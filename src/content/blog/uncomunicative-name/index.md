@@ -1,6 +1,6 @@
 ---
-title: "Uncommunicative Name"
-description: "Aprende a identificar y evitar el code smell 'Uncommunicative Name'. Mejora la legibilidad y mantenibilidad de tu código con ejemplos claros, buenas prácticas y consejos para desarrolladores."
+title: "Uncommunicative Name: La importancia de elegir nombres claros en programación"
+description: "Descubre por qué evitar nombres poco descriptivos en variables y métodos mejora la legibilidad del código. Aprende buenas prácticas para nombrar en programación."
 date: "2025-05-22"
 draft: false
 tags:
