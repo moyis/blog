@@ -4,7 +4,7 @@ description: "Descubre cómo evitar el code smell 'Primitive Obsession' en Java.
 date: "2025-02-11"
 draft: false
 tags:
-  - code-smells
+  - code-smell
   - bloater
 ---
 
