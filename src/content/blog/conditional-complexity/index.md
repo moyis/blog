@@ -13,19 +13,34 @@ La complejidad condicional (**Conditional Complexity**) es un problema que surge
 Observemos el siguiente ejemplo para ilustrar este problema:
 
 ```java
+public class Client {
+    private boolean vip;
+    private boolean specialDiscount;
+
+    ...
+    
+    public boolean isVip() {
+        return vip;
+    }
+    
+    public boolean hasSpecialDiscount() {
+        return specialDiscount;
+    }
+}
+
 double getPrice(Product product, Client client) {
   return product.price() * (1 - calculateDiscount(client));
 }
 
 double calculateDiscount(Client client) {
   if (client.vip()) {
-    if (client.specialDiscount()) {
+    if (client.hasSpecialDiscount()) {
       return 0.30;
     } else {
       return 0.20;
     }
   } else {
-    if (client.specialDiscount()) {
+    if (client.hasSpecialDiscount()) {
       return 0.10;
     } else {
       return 0.0;
@@ -70,13 +85,23 @@ record SpecialVipDiscount() implements Discount {
     return 0.30;
   }
 }
+
+public class Client {
+    private Discount discount;
+
+    ...
+    
+    public boolean getDiscountPercentage() {
+        return discount.percentage();
+    }
+}
 ```
 
 De esta manera, la función `getPrice()` quedaría simplificada a:
 
 ```java
 double getPrice(Product product, Client client) {
-  double discountPercentage = client.discount().percentage();
+  double discountPercentage = client.getDiscountPercentage();
   return product.price() * (1 - discountPercentage);
 }
 ```
