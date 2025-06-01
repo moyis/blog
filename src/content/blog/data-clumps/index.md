@@ -4,21 +4,15 @@ description: "Aprende qué son los 'data clumps', cómo identificarlos y refacto
 date: "2025-02-22"
 draft: false
 tags:
-  - code-smells
+  - code-smell
   - bloater
 ---
 
-Los **Data Clumps** son conjuntos de datos que aparecen repetidamente en distintos lugares del código.
-Esto puede ser como listas de campos en clases o como parámetros en múltiples métodos.
-Cuando los mismos conjuntos de datos se repiten en diversas secciones del programa, cualquier cambio en su estructura
-requiere modificaciones en varios lugares, lo que incrementa la posibilidad de errores.
+Los **Data Clumps** son conjuntos de datos que aparecen repetidamente en distintos lugares del código, como listas de campos en clases o parámetros en múltiples métodos. Esta repetición puede llevar a que cualquier cambio en su estructura requiera modificaciones en varios lugares, aumentando el riesgo de errores y dificultando el mantenimiento del código.
 
-A menudo, estos datos comparten un propósito común, a
+A menudo, estos datos **comparten un propósito común**, aunque su relación no siempre sea evidente. Una señal clara de la presencia de Data Clumps es la **sensación de _déjà vu_** al examinar los parámetros de distintos métodos o los atributos de varias clases.
 
-Una señal clara de la presencia de **Data Clumps** es la sensación de **_déjà vu_** al examinar los parámetros de distintos métodos o los atributos de varias clases.
-A menudo, estos datos comparten un propósito común, aunque su relación no sea evidente debido a diferencias en los nombres de las variables.
-
-Consideremos la siguiente estructura en nuestra aplicación como ejemplo:
+Veamos esto con un ejemplo:
 
 ```java
 record Shape(
@@ -35,10 +29,9 @@ void print(int r, int g, int b, String text) {
 }
 ```
 
-Si estos mismos atributos (rojo, verde y azul) aparecen en varias clases o métodos, estamos duplicando código
-innecesariamente, lo que dificulta la coherencia y la evolución del sistema.
+Si los atributos (rojo, verde y azul) se repiten en varias clases o métodos, estamos dificultando la evolución de nuestro código. Por ejemplo, si deseamos añadir el atributo `opacity`, tendríamos que buscar en todo el código donde se utilizan estas tres variables para incorporar la nueva propiedad. Esta tarea se vuelve aún más complicada si, como en el ejemplo, los atributos tienen nombres diferentes en distintas partes del código.
 
-Para solucionar este problema, podemos **extraer** estos atributos a una **nueva clase** `Color`
+Para solucionar este problema, podemos **extraer estos atributos a una nueva clase** `Color`
 y utilizarla en lugar de repetir las mismas variables en múltiples lugares:
 
 ```java
@@ -62,9 +55,6 @@ void print(Color color, String text) {
 }
 ```
 
-Con este refactor, evitamos repetir los mismos tres atributos en múltiples clases y métodos.
-`Color` se convierte en una representación más explícita de lo que significan esos valores, lo que hace que el código sea más intuitivo y fácil de entender.
-Además, si en el futuro deseamos modificar la representación de los colores (por ejemplo, añadir un valor de transparencia), solo necesitaremos modificar
-la clase `Color` en un único lugar, en vez de actualizar múltiples definiciones dispersas por el código.
-Finalmente, la clase `Color` puede llegar a incluir métodos útiles, como la conversión a formato hexadecimal o la manipulación de tonos,
-encapsulando la lógica relacionada con el concepto de color en un solo lugar.
+Con este refactor, eliminamos la repetición de los mismos tres atributos en múltiples clases y métodos. La clase `Color` hace que el código sea más intuitivo, fácil de entender y extensible. Si decidimos agregar el atributo `opacity`, simplemente lo añadimos a la clase `Color`, y este nuevo valor estará disponible en todos los lugares donde se utilice.
+
+Además, la clase `Color` puede incluir métodos útiles, como la conversión a formato hexadecimal. De esta manera encapsulamos la lógica relacionada con el concepto de color en un solo lugar. Esto no solo mejora la claridad del código, sino que también facilita su mantenimiento y evolución a lo largo del tiempo.
