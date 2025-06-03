@@ -41,8 +41,7 @@ A primera vista, este diseño parece correcto. Sin embargo, si lo analizamos en 
 
 Cada vez que necesitemos asegurarnos de que el `email` es válido o que el `zipCode` cumple un formato específico, tendremos que duplicar esa lógica en distintos lugares o crear una clase utilitaria `Validator` para manejar esa funcionalidad. Por último, los atributos `street`, `zipCode`, `city` y `country`, engloban un mismo concepto (`Address`) y, seguramente, se utilizan juntos.
 
-
-Podemos mejorar nuestro ejemplo utilizando una técnica conocida como **Value Objects**. La idea  es encapsular conceptos relevantes en clases específicas. De esta manera, no solo revelamos la intención de nuestro código, sino que también nos abre las puertas a otras mejoras.
+Podemos mejorar nuestro ejemplo utilizando una técnica conocida como **Value Objects**. La idea es encapsular conceptos relevantes en clases específicas. De esta manera, no solo revelamos la intención de nuestro código, sino que también nos abre las puertas a otras mejoras.
 
 ```java
 public record Person(PersonId id, String name, Email email, Address address) {
@@ -80,12 +79,12 @@ public record ZipCode(String zipCode) {
 }
 ```
 
-Luego del refactor, 
+Luego del refactor,
 
 - **Mayor seguridad en tiempo de compilación:** El compilador detectará errores si intentamos asignar un tipo incorrecto a un campo (por ejemplo, pasar un `Email` donde se espera un `PersonId`).
 
 - **Validación centralizada:** Las reglas de negocio y validaciones se definen una sola vez, dentro de la clase correspondiente, evitando posibles inconsistencias.
 
 **Código más expresivo y mantenible:** Los tipos específicos comunican mejor la intención del código, facilitando su lectura y mantenimiento.
-   
+
 **Agrupación semántica:** Conceptos relacionados, como la dirección, se encapsulan en una sola clase.

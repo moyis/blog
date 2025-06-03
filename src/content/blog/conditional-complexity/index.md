@@ -18,11 +18,11 @@ public class Client {
     private boolean specialDiscount;
 
     ...
-    
+
     public boolean isVip() {
         return vip;
     }
-    
+
     public boolean hasSpecialDiscount() {
         return specialDiscount;
     }
@@ -90,7 +90,7 @@ public class Client {
     private Discount discount;
 
     ...
-    
+
     public boolean getDiscountPercentage() {
         return discount.percentage();
     }
