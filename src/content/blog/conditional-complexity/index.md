@@ -1,6 +1,6 @@
 ---
 title: "Complejidad Condicional: Cómo Simplificar tu Código"
-description: "Descubre cómo reducir la complejidad condicional en tu código usando el Patrón Estrategia. Mejora la legibilidad, mantenimiento y flexibilidad de tu código."
+description: "Cómo reducir la complejidad condicional en tu código usando el Patrón Estrategia. Mejora la legibilidad, mantenimiento y flexibilidad de tu código."
 date: "2025-04-23"
 draft: false
 tags:
