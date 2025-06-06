@@ -76,7 +76,7 @@ export default defineConfig({
         ],
       },
     ],
-    csp: true,
+    csp: false,
     responsiveImages: true,
   },
 });
