@@ -39,6 +39,9 @@ export default defineConfig({
       theme: "css-variables",
     },
   },
+    image: {
+    experimentalLayout: 'constrained',
+  },
   experimental: {
     fonts: [
       {
@@ -73,5 +76,7 @@ export default defineConfig({
         ],
       },
     ],
+    csp: true,
+    responsiveImages: true,
   },
 });
