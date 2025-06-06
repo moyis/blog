@@ -1,6 +1,6 @@
 ---
 title: "Magic Numbers en Programación: Qué Son y Cómo Evitarlos"
-description: "Descubre qué son los magic numbers en programación, por qué dificultan el mantenimiento del código y aprende buenas prácticas para evitarlos fácilmente."
+description: "Qué son los magic numbers, por qué dificultan el mantenimiento del código y aprende buenas prácticas para evitarlos fácilmente."
 date: "2025-04-26"
 draft: false
 tags:
