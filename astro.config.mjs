@@ -39,8 +39,8 @@ export default defineConfig({
       theme: "css-variables",
     },
   },
-    image: {
-    experimentalLayout: 'constrained',
+  image: {
+    experimentalLayout: "constrained",
   },
   experimental: {
     fonts: [

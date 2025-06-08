@@ -41,7 +41,7 @@ sdk version
 
 Deberías ver un resultado similar a este:
 
-```
+```txt
 SDKMAN!
 script: 5.18.2
 native: 0.4.6
@@ -77,7 +77,7 @@ java -version
 
 Deberías ver una salida similar a la siguiente en tu terminal:
 
-```
+```txt
 openjdk version "21.0.2" 2024-01-16
 OpenJDK Runtime Environment GraalVM CE 21.0.2+13.1 (build 21.0.2+13-jvmci-23.1-b30)
 OpenJDK 64-Bit Server VM GraalVM CE 21.0.2+13.1 (build 21.0.2+13-jvmci-23.1-b30, mixed mode, sharing)
@@ -109,7 +109,7 @@ mvn -v
 
 La salida en la consola debería ser algo similar a:
 
-```
+```txt
 Apache Maven 3.9.8 (36645f6c9b5079805ea5009217e36f2cffd34256)
 Maven home: /Users/user/.sdkman/candidates/maven/current
 Java version: 21.0.2, vendor: GraalVM Community, runtime: /Users/user/.sdkman/candidates/java/21.0.2-graalce
@@ -127,6 +127,6 @@ TBD
 
 TBD
 
-```
+```txt
 
 ```
