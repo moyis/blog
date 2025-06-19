@@ -40,7 +40,8 @@ export default defineConfig({
     },
   },
   image: {
-    experimentalLayout: "constrained",
+    responsiveStyles: true,
+    layout: 'constrained',
   },
   experimental: {
     fonts: [
@@ -77,6 +78,5 @@ export default defineConfig({
       },
     ],
     csp: false,
-    responsiveImages: true,
   },
 });
