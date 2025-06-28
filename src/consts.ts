@@ -4,7 +4,7 @@ export const SITE: Site = {
   TITLE: "Fausto Moya",
   DESCRIPTION:
     "Fausto Moya's blog and portfolio: tech insights, coding tips, and innovative projects in one place. Explore and connect with a passionate developer!",
-  EMAIL: "fausto@moyis.dev",
+  EMAIL: "hola@moyis.dev",
   NUM_POSTS_ON_HOMEPAGE: 5,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
 };
