@@ -46,6 +46,6 @@
     "prettier-plugin-organize-imports": "4.1.0",
     "prettier-plugin-tailwindcss": "0.6.13",
     "react": "19.1.0",
-    "typescript-eslint": "8.35.1"
+    "typescript-eslint": "8.36.0"
   }
 }
