@@ -19,7 +19,7 @@
     "@fontsource/geist-mono": "5.2.6",
     "@fontsource/geist-sans": "5.2.5",
     "@tailwindcss/vite": "4.1.13",
-    "astro": "5.13.5",
+    "astro": "5.13.6",
     "astro-opengraph-images": "1.13.1",
     "astro-pagefind": "1.8.4",
     "clsx": "2.1.1",
