@@ -32,7 +32,7 @@
     "@eslint/js": "9.37.0",
     "@eslint/json": "0.13.2",
     "@eslint/markdown": "7.4.0",
-    "@playwright/test": "1.56.0",
+    "@playwright/test": "1.56.1",
     "@tailwindcss/typography": "0.5.19",
     "@types/react": "19.1.16",
     "dotenv": "17.2.3",
