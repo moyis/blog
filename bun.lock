@@ -23,7 +23,7 @@
       "devDependencies": {
         "@eslint/js": "9.38.0",
         "@eslint/json": "0.13.2",
-        "@eslint/markdown": "7.4.0",
+        "@eslint/markdown": "7.4.1",
         "@playwright/test": "1.56.1",
         "@tailwindcss/typography": "0.5.19",
         "@types/react": "19.2.2",
@@ -171,7 +171,7 @@
 
     "@eslint/json": ["@eslint/json@0.13.2", "", { "dependencies": { "@eslint/core": "^0.15.2", "@eslint/plugin-kit": "^0.3.5", "@humanwhocodes/momoa": "^3.3.9", "natural-compare": "^1.4.0" } }, "sha512-yWLyRE18rHgHXhWigRpiyv1LDPkvWtC6oa7QHXW7YdP6gosJoq7BiLZW2yCs9U7zN7X4U3ZeOJjepA10XAOIMw=="],
 
-    "@eslint/markdown": ["@eslint/markdown@7.4.0", "", { "dependencies": { "@eslint/core": "^0.16.0", "@eslint/plugin-kit": "^0.4.0", "github-slugger": "^2.0.0", "mdast-util-from-markdown": "^2.0.2", "mdast-util-frontmatter": "^2.0.1", "mdast-util-gfm": "^3.1.0", "micromark-extension-frontmatter": "^2.0.0", "micromark-extension-gfm": "^3.0.0", "micromark-util-normalize-identifier": "^2.0.1" } }, "sha512-VQykmMjBb4tQoJOXVWXa+oQbQeCZlE7W3rAsOpmtpKLvJd75saZZ04PVVs7+zgMDJGghd4/gyFV6YlvdJFaeNQ=="],
+    "@eslint/markdown": ["@eslint/markdown@7.4.1", "", { "dependencies": { "@eslint/core": "^0.16.0", "@eslint/plugin-kit": "^0.4.0", "github-slugger": "^2.0.0", "mdast-util-from-markdown": "^2.0.2", "mdast-util-frontmatter": "^2.0.1", "mdast-util-gfm": "^3.1.0", "micromark-extension-frontmatter": "^2.0.0", "micromark-extension-gfm": "^3.0.0", "micromark-util-normalize-identifier": "^2.0.1" } }, "sha512-fhcQcylVqgb7GLPr2+6hlDQXK4J3d/fPY6qzk9/i7IYtQkIr15NKI5Zg39Dv2cV/bn5J0Znm69rmu9vJI/7Tlw=="],
 
     "@eslint/object-schema": ["@eslint/object-schema@2.1.7", "", {}, "sha512-VtAOaymWVfZcmZbp6E2mympDIHvyjXs/12LqWYjVw6qjrfF+VK+fyG33kChz3nnK+SU5/NeHOqrTEHS8sXO3OA=="],
 
