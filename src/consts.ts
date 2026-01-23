@@ -1,4 +1,4 @@
-import type { Metadata, Site, Socials, WorkExperience } from "@types";
+import type { Author, Metadata, Site, Socials, WorkExperience } from "@types";
 
 export const SITE: Site = {
   TITLE: "Fausto Moya",
@@ -9,6 +9,18 @@ export const SITE: Site = {
   NUM_PROJECTS_ON_HOMEPAGE: 3,
 };
 
+export const AUTHOR: Author = {
+  NAME: "Fausto Moya",
+  EMAIL: "hola@moyis.dev",
+  JOB_TITLE: "Software Engineer",
+  JOB_TITLE_ES: "Ingeniero de Software",
+  LOCATION: "The Netherlands",
+  BIO: "Software Engineer passionate about building scalable solutions and sharing knowledge with the Spanish-speaking developer community.",
+  BIO_ES:
+    "Ingeniero de Software apasionado por construir soluciones escalables y compartir conocimiento con la comunidad de desarrolladores hispanohablantes.",
+  IMAGE: "/fausto-moya.jpg",
+};
+
 export const HOME: Metadata = {
   TITLE: "Home",
   DESCRIPTION:
@@ -17,7 +29,8 @@ export const HOME: Metadata = {
 
 export const BLOG: Metadata = {
   TITLE: "Blog",
-  DESCRIPTION: "A collection of articles on topics I am passionate about.",
+  DESCRIPTION:
+    "Artículos en español sobre desarrollo de software, buenas prácticas, code smells y arquitectura. Escrito por Fausto Moya para la comunidad hispanohablante.",
 };
 
 export const PROJECTS: Metadata = {

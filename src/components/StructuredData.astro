@@ -1,0 +1,122 @@
+---
+import { SITE, AUTHOR, SOCIALS } from "@consts";
+
+interface Props {
+  type: "person" | "blogPosting" | "breadcrumb";
+  data?: {
+    title?: string;
+    description?: string;
+    date?: Date;
+    tags?: string[];
+    url?: string;
+  };
+}
+
+const { type, data } = Astro.props;
+
+const getPersonSchema = () => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: AUTHOR.NAME,
+    jobTitle: AUTHOR.JOB_TITLE,
+    email: AUTHOR.EMAIL,
+    url: Astro.site?.toString(),
+    image: new URL(AUTHOR.IMAGE || "/og-image.png", Astro.site).toString(),
+    description: AUTHOR.BIO,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "NL",
+      addressRegion: AUTHOR.LOCATION,
+    },
+    sameAs: SOCIALS.map((social) => social.HREF),
+    knowsAbout: [
+      "Software Engineering",
+      "Web Development",
+      "Kotlin",
+      "Spring",
+      "AWS",
+      "Microservices",
+      "Backend Development",
+    ],
+  };
+};
+
+const getBlogPostingSchema = () => {
+  if (!data) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: data.title,
+    description: data.description,
+    datePublished: data.date?.toISOString(),
+    dateModified: data.date?.toISOString(),
+    author: {
+      "@type": "Person",
+      name: AUTHOR.NAME,
+      url: Astro.site?.toString(),
+      jobTitle: AUTHOR.JOB_TITLE,
+    },
+    publisher: {
+      "@type": "Person",
+      name: AUTHOR.NAME,
+      url: Astro.site?.toString(),
+    },
+    url: data.url || Astro.url.toString(),
+    inLanguage: "es-ES",
+    keywords: data.tags?.join(", "),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": data.url || Astro.url.toString(),
+    },
+  };
+};
+
+const getBreadcrumbSchema = () => {
+  const pathSegments = Astro.url.pathname.split("/").filter(Boolean);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: Astro.site?.toString(),
+      },
+      ...pathSegments.map((segment, index) => ({
+        "@type": "ListItem",
+        position: index + 2,
+        name: segment.charAt(0).toUpperCase() + segment.slice(1),
+        item: new URL(
+          pathSegments.slice(0, index + 1).join("/"),
+          Astro.site,
+        ).toString(),
+      })),
+    ],
+  };
+};
+
+const getSchema = () => {
+  switch (type) {
+    case "person":
+      return getPersonSchema();
+    case "blogPosting":
+      return getBlogPostingSchema();
+    case "breadcrumb":
+      return getBreadcrumbSchema();
+    default:
+      return null;
+  }
+};
+
+const schema = getSchema();
+---
+
+{
+  schema && (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )
+}

@@ -11,6 +11,17 @@ export type Metadata = {
   DESCRIPTION: string;
 };
 
+export type Author = {
+  NAME: string;
+  EMAIL: string;
+  JOB_TITLE: string;
+  JOB_TITLE_ES: string;
+  LOCATION: string;
+  BIO: string;
+  BIO_ES: string;
+  IMAGE: string;
+};
+
 export type Socials = {
   NAME: string;
   HREF: string;

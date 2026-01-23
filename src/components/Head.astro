@@ -7,11 +7,13 @@ import { getImagePath } from "astro-opengraph-images";
 interface Props {
   title: string;
   description: string;
+  lang?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description } = Astro.props;
+const { title, description, lang = "en" } = Astro.props;
+const ogLocale = lang === "es" ? "es_ES" : "en_US";
 const { url, site } = Astro;
 const image = getImagePath({ url, site });
 ---
@@ -40,6 +42,8 @@ const image = getImagePath({ url, site });
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:site_name" content="Fausto Moya" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -50,7 +54,7 @@ const image = getImagePath({ url, site });
 
 <!-- PageFind -->
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
-<script is:inline src="/pagefind/pagefind-ui.js"></script>
+<script is:inline src="/pagefind/pagefind-ui.js" defer></script>
 <ClientRouter />
 <Font cssVariable="--font-blog" preload />
 <Font cssVariable="--font-code" preload />

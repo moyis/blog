@@ -8,6 +8,7 @@ import BackToPrevious from "@components/BackToPrevious.astro";
 import PostNavigation from "@components/PostNavigation.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 import Giscus from "@components/Giscus.astro";
+import StructuredData from "@components/StructuredData.astro";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog"))
@@ -51,10 +52,21 @@ const post = Astro.props;
 const { Content, headings } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.description} lang="en">
+<Layout title={post.data.title} description={post.data.description} lang="es">
+  <StructuredData
+    type="blogPosting"
+    data={{
+      title: post.data.title,
+      description: post.data.description,
+      date: post.data.date,
+      tags: post.data.tags,
+      url: new URL(Astro.url.pathname, Astro.site).toString(),
+    }}
+  />
+  <StructuredData type="breadcrumb" />
   <Container>
     <div class="animate">
-      <BackToPrevious href="/blog">Back to blog</BackToPrevious>
+      <BackToPrevious href="/blog">Volver al blog</BackToPrevious>
     </div>
     <div class="my-10 space-y-1">
       <div class="animate flex items-center gap-1.5">
@@ -67,6 +79,10 @@ const { Content, headings } = await render(post);
             <div class="font-base text-sm">{readingTime(post.body)}</div>
           )
         }
+        &bull;
+        <div class="font-base text-sm">
+          Escrito por <a href="/" class="hover:underline">Fausto Moya</a>
+        </div>
       </div>
       <h1 class="animate text-3xl font-semibold text-black dark:text-white">
         {post.data.title}
