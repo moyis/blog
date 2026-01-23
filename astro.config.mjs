@@ -1,8 +1,10 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import compress from "astro-compress";
 import pagefind from "astro-pagefind";
 import { defineConfig, fontProviders } from "astro/config";
+import fs from "node:fs";
 
 import opengraphImages from "astro-opengraph-images";
 import { ogImage } from "./src/components/OgImage";
@@ -10,6 +12,10 @@ import { ogImage } from "./src/components/OgImage";
 // https://astro.build/config
 export default defineConfig({
   site: "https://moyis.dev",
+  compressHTML: true,
+  build: {
+    inlineStylesheets: "auto",
+  },
   integrations: [
     sitemap(),
     mdx(),
@@ -18,7 +24,7 @@ export default defineConfig({
       options: {
         fonts: [
           {
-            name: "Roboto",
+            name: "Geist Sans",
             weight: 400,
             style: "normal",
             data: fs.readFileSync(
@@ -29,7 +35,13 @@ export default defineConfig({
       },
       render: ogImage,
     }),
-    ,
+    compress({
+      CSS: true,
+      HTML: false,
+      Image: false, // Using Astro's image optimization instead
+      JavaScript: true,
+      SVG: false,
+    }),
   ],
   vite: {
     plugins: [tailwindcss()],
@@ -41,7 +53,16 @@ export default defineConfig({
   },
   image: {
     responsiveStyles: true,
-    layout: 'constrained',
+    layout: "constrained",
+    formats: ["avif", "webp"],
+    quality: 80,
+    svg: {
+      size: "optimize", // Optimize SVG file size
+    },
+  },
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
   },
   experimental: {
     fonts: [

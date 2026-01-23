@@ -1,2 +1,6 @@
 User-agent: *
 Allow: /
+
+# Sitemaps
+Sitemap: https://moyis.dev/sitemap-index.xml
+Sitemap: https://moyis.dev/sitemap-0.xml
