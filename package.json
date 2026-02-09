@@ -33,7 +33,7 @@
     "@eslint/js": "9.39.2",
     "@eslint/json": "0.14.0",
     "@eslint/markdown": "7.5.1",
-    "@playwright/test": "1.58.1",
+    "@playwright/test": "1.58.2",
     "@tailwindcss/typography": "0.5.19",
     "@types/react": "19.2.13",
     "astro-compress": "2.3.9",
