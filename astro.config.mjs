@@ -75,7 +75,7 @@ export default defineConfig({
   },
   fonts: [
     {
-      provider: fontProviders.google(),
+      provider: fontProviders.fontsource(),
       name: "Geist Sans",
       cssVariable: "--font-blog",
       weights: ["400", "500", "600"],
