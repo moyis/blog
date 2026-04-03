@@ -13,7 +13,7 @@
         "@tailwindcss/vite": "4.2.1",
         "astro": "5.18.1",
         "astro-opengraph-images": "1.14.3",
-        "astro-pagefind": "1.8.5",
+        "astro-pagefind": "1.8.6",
         "clsx": "2.1.1",
         "tailwind-merge": "3.5.0",
         "tailwindcss": "4.2.1",
@@ -525,7 +525,7 @@
 
     "astro-opengraph-images": ["astro-opengraph-images@1.14.3", "", { "dependencies": { "@resvg/resvg-js": "^2.6.2", "jsdom": "^28.0.0", "react": "^19.0.0", "satori": "^0.19.0" }, "peerDependencies": { "tw-to-css": "^0.0.12" } }, "sha512-qBYkcPII1N+IyGlC1Q2TbTJxocXP9VerGGHsy72hirJor9JCnZtpuak4S04kVpjl6/DlyIV10ZRxXOGMsg0uRw=="],
 
-    "astro-pagefind": ["astro-pagefind@1.8.5", "", { "dependencies": { "@pagefind/default-ui": "^1.2.0", "pagefind": "^1.2.0", "sirv": "^3.0.0" }, "peerDependencies": { "astro": "^2.0.4 || ^3 || ^4 || ^5" } }, "sha512-CVhKKA9bTQ7hLsHk9KTNDzOdgR4EI04gn0mjDGfnXzaHx7rL92YkNpFM5AoFl9NWmOUbaIFC2DN7Yvs/ZFPRdA=="],
+    "astro-pagefind": ["astro-pagefind@1.8.6", "", { "dependencies": { "@pagefind/default-ui": "^1.2.0", "pagefind": "^1.2.0", "sirv": "^3.0.0" }, "peerDependencies": { "astro": "^2.0.4 || ^3 || ^4 || ^5 || ^6" } }, "sha512-pofDcWMgA3qLQX9gSJ1mc3NSJDv6o1PDs68MrtdupxMFIlAFT2yckFSiOoaab2stSDmKyX/wVaTObyj5FuBulA=="],
 
     "axobject-query": ["axobject-query@4.1.0", "", {}, "sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ=="],
 
