@@ -10,7 +10,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   timeout: 5000,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 4 : undefined,
   reporter: "html",
   use: {
     baseURL: process.env.CI ? process.env.BASE_URL : "http://localhost:4321/",
