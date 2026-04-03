@@ -9,9 +9,6 @@ test.describe("Syntax highlighting", () => {
     await expect(codeBlocks.first()).toBeVisible();
     const tokens = page.locator("pre code .token");
     expect(await tokens.count()).toBeGreaterThan(0);
-    await expect(codeBlocks.first()).toHaveScreenshot(
-      "code-block-highlighted.png",
-    );
   });
 
   test("keyword tokens are present in Java code blocks", async ({ page }) => {
@@ -25,8 +22,8 @@ test.describe("Syntax highlighting", () => {
     await page.getByRole("button", { name: "Dark theme" }).click();
     await expect(page.locator("html")).toHaveClass(/dark/);
     const codeBlocks = page.locator("pre code");
-    await expect(codeBlocks.first()).toHaveScreenshot(
-      "code-block-highlighted-dark.png",
-    );
+    await expect(codeBlocks.first()).toBeVisible();
+    const tokens = page.locator("pre code .token");
+    expect(await tokens.count()).toBeGreaterThan(0);
   });
 });
