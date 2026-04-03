@@ -7,6 +7,7 @@ import fs from "node:fs";
 
 import opengraphImages from "astro-opengraph-images";
 import { ogImage } from "./src/components/OgImage";
+import rehypePrismPlus from "rehype-prism-plus";
 
 // https://astro.build/config
 export default defineConfig({
@@ -39,9 +40,8 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   markdown: {
-    shikiConfig: {
-      theme: "css-variables",
-    },
+    syntaxHighlight: false,
+    rehypePlugins: [rehypePrismPlus],
   },
   image: {
     responsiveStyles: true,
