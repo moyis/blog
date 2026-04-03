@@ -1,5 +1,5 @@
 ---
-import { SITE, AUTHOR, SOCIALS } from "@consts";
+import { AUTHOR, SOCIALS } from "@consts";
 
 interface Props {
   type: "person" | "blogPosting" | "breadcrumb";
@@ -117,6 +117,6 @@ const schema = getSchema();
 
 {
   schema && (
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   )
 }
