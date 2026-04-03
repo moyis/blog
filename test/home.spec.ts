@@ -47,3 +47,23 @@ test("has a link that redirects to my projects", async ({ page }) => {
   await page.getByRole("link", { name: "See all projects" }).click();
   await expect(page).toHaveURL("/projects");
 });
+
+test("nav bar is visible", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("header nav")).toBeVisible();
+});
+
+test("footer is visible", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("footer")).toBeVisible();
+});
+
+test("page does not overflow horizontally", async ({ page }) => {
+  await page.goto("/");
+  const hasOverflow = await page.evaluate(
+    () =>
+      document.documentElement.scrollWidth >
+      document.documentElement.clientWidth,
+  );
+  expect(hasOverflow).toBe(false);
+});

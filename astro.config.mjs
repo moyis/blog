@@ -1,7 +1,6 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
-import compress from "astro-compress";
 import pagefind from "astro-pagefind";
 import { defineConfig, fontProviders } from "astro/config";
 import fs from "node:fs";
@@ -35,13 +34,6 @@ export default defineConfig({
       },
       render: ogImage,
     }),
-    compress({
-      CSS: true,
-      HTML: false,
-      Image: false, // Using Astro's image optimization instead
-      JavaScript: true,
-      SVG: false,
-    }),
   ],
   vite: {
     plugins: [tailwindcss()],
@@ -64,40 +56,54 @@ export default defineConfig({
     prefetchAll: true,
     defaultStrategy: "hover",
   },
-  experimental: {
-    fonts: [
-      {
-        provider: fontProviders.google(),
-        name: "Geist Sans",
-        cssVariable: "--font-blog",
-        weights: ["400", "500", "600"],
-        fallbacks: [
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif",
-          "Apple Color Emoji",
-          "Segoe UI Emoji",
-          "Segoe UI Symbol",
-          "Noto Color Emoji",
-        ],
+  security: {
+    csp: {
+      directives: [
+        "default-src 'self'",
+        "frame-src 'self' https://giscus.app",
+        "img-src 'self' data:",
+        "font-src 'self'",
+        "connect-src 'self'",
+      ],
+      scriptDirective: {
+        resources: ["'self'", "https://giscus.app"],
       },
-      {
-        provider: fontProviders.google(),
-        name: "Geist Mono",
-        cssVariable: "--font-code",
-        weights: ["400", "500", "600"],
-        fallbacks: [
-          "ui-monospace",
-          "SFMono-Regular",
-          "Menlo",
-          "Monaco",
-          "Consolas",
-          "Liberation Mono",
-          "Courier New",
-          "monospace",
-        ],
+      styleDirective: {
+        resources: ["'self'", "'unsafe-inline'"],
       },
-    ],
-    csp: false,
+    },
   },
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Geist Sans",
+      cssVariable: "--font-blog",
+      weights: ["400", "500", "600"],
+      fallbacks: [
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji",
+      ],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "Geist Mono",
+      cssVariable: "--font-code",
+      weights: ["400", "500", "600"],
+      fallbacks: [
+        "ui-monospace",
+        "SFMono-Regular",
+        "Menlo",
+        "Monaco",
+        "Consolas",
+        "Liberation Mono",
+        "Courier New",
+        "monospace",
+      ],
+    },
+  ],
 });
