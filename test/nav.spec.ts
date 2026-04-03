@@ -25,3 +25,23 @@ test("experience in the nav bar redirects to experience page", async ({
   await page.getByRole("link", { name: "experience" }).click();
   await expect(page).toHaveURL("/experience");
 });
+
+test("nav is visible on all main pages", async ({ page }) => {
+  const pages = ["/", "/blog", "/projects", "/experience"];
+  for (const url of pages) {
+    await page.goto(url);
+    await expect(page.locator("header nav")).toBeVisible();
+  }
+});
+
+test("all nav links are visible on mobile viewport", async ({ page }) => {
+  await page.setViewportSize({ width: 393, height: 851 }); // Pixel 5
+  await page.goto("/");
+  await expect(page.getByRole("link", { name: "blog" })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "experience" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "projects", exact: true }),
+  ).toBeVisible();
+});
