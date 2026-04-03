@@ -36,7 +36,7 @@
     "@playwright/test": "1.58.2",
     "@tailwindcss/typography": "0.5.19",
     "@types/react": "19.2.14",
-    "astro-compress": "2.3.9",
+    "astro-compress": "2.4.0",
     "dotenv": "17.3.1",
     "eslint": "9.39.2",
     "globals": "17.4.0",
