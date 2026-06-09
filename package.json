@@ -41,6 +41,6 @@
     "pagefind": "1.5.2",
     "react": "19.2.7",
     "sharp": "0.34.5",
-    "typescript-eslint": "8.60.1"
+    "typescript-eslint": "8.61.0"
   }
 }
