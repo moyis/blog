@@ -9,13 +9,13 @@ test("my name in the nav bar redirects to home page", async ({ page }) => {
 test("blog in the nav bar redirects to blog page", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("link", { name: "blog" }).click();
-  await expect(page).toHaveURL("/blog");
+  await expect(page).toHaveURL("/blog/");
 });
 
 test("projects in the nav bar redirects to projects page", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("link", { name: "projects", exact: true }).click();
-  await expect(page).toHaveURL("/projects");
+  await expect(page).toHaveURL("/projects/");
 });
 
 test("experience in the nav bar redirects to experience page", async ({
@@ -23,7 +23,7 @@ test("experience in the nav bar redirects to experience page", async ({
 }) => {
   await page.goto("/");
   await page.getByRole("link", { name: "experience" }).click();
-  await expect(page).toHaveURL("/experience");
+  await expect(page).toHaveURL("/experience/");
 });
 
 test("nav is visible on all main pages", async ({ page }) => {

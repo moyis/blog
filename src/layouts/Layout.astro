@@ -24,16 +24,12 @@ const { title, description, lang } = Astro.props;
     />
   </head>
   <body>
-    <noscript>
-      <style>
-        .animate {
-          opacity: 1;
-          translate: var(--tw-translate-x) calc(var(--spacing) * 0);
-        }
-      </style>
-    </noscript>
+    <a
+      href="#main-content"
+      class="ghost-surface sr-only rounded-sm bg-neutral-100 px-3 py-2 text-sm focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[var(--z-skip-link)] dark:bg-neutral-900"
+    >skip to content</a>
     <Header />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer />

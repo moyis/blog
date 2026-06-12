@@ -21,7 +21,7 @@ const projects = (await getCollection("projects"))
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION} lang="en">
   <StructuredData type="person" />
   <Container>
-    <aside data-pagefind-ignore>
+    <div data-pagefind-ignore>
       <h1 class="animate text-3xl font-semibold text-black dark:text-white">
         Fausto Moya
       </h1>
@@ -30,46 +30,47 @@ const projects = (await getCollection("projects"))
           <article>
             <span class="animate">
               <p>
-                I <strong> designed, developed and deployed</strong> software for
-                diverse environments, from fast-moving startups to companies serving
-                millions. I thrive on turning <strong>complex challenges</strong
-                >
-                into <strong>meaningful solutions</strong>, demonstrated across
-                industries like fintech, logistics, and food delivery.
-              </p>
-            </span>
-            <span class="animate">
-              <p>
-                My journey has taken me from 🇦🇷 <strong>Argentina</strong> to exploring
-                new horizons in 🇳🇱 <strong>The Netherlands</strong>, gaining
-                valuable experience and building a second home. Here, I'm
-                currently <strong>improving scheduling</strong> and <strong
-                  >employee experience</strong
-                > for 1,270+ stores at <a
-                  href="https://www.aholddelhaize.com/about"
-                  target="_blank">Ahold Delhaize</a
-                >. Previously, I played a key role in <strong
-                  >cutting CO₂ emissions</strong
-                > with <a
-                  href="https://www.routescanner.com/about"
-                  target="_blank">Routescanner</a
-                > and delivered significant value at companies like <a
-                  href="https://news.mercadolibre.com/acercade">Mercado Libre</a
-                >, <a href="https://www.uala.com.ar/nosotros" target="_blank"
-                  >Ualá</a
-                >, and <a
-                  href="https://about.rappi.com/about-us"
-                  target="_blank">Rappi</a
+                I <strong> designed, developed and deployed</strong> software across
+                fast-moving startups and companies serving millions, in <strong
+                  >fintech</strong
+                >, <strong>logistics</strong>, and <strong>food delivery</strong
                 >.
               </p>
             </span>
             <span class="animate">
               <p>
-                Outside of work, I volunteer my time <strong>tutoring</strong> university
-                students in programming, databases, and testing. This passion for
-                sharing knowledge led me to create this blog – a resource aimed at
-                boosting everyone I've tutored and supporting the
-                <strong> Spanish-speaking</strong> software engineering community!
+                My journey took me from 🇦🇷 <strong>Argentina</strong> to 🇳🇱 <strong
+                  >The Netherlands</strong
+                >, where I built a second home. I'm currently <strong
+                  >improving scheduling</strong
+                > and <strong>employee experience</strong> for 1,270+ stores at <a
+                  href="https://www.aholddelhaize.com/about"
+                  target="_blank"
+                  rel="noopener noreferrer">Ahold Delhaize</a
+                >. Before that, I worked on <strong>cutting CO₂ emissions</strong
+                > at <a
+                  href="https://www.routescanner.com/about"
+                  target="_blank"
+                  rel="noopener noreferrer">Routescanner</a
+                >, and earlier at <a href="https://news.mercadolibre.com/acercade"
+                  >Mercado Libre</a
+                >, <a
+                  href="https://www.uala.com.ar/nosotros"
+                  target="_blank"
+                  rel="noopener noreferrer">Ualá</a
+                >, and <a
+                  href="https://about.rappi.com/about-us"
+                  target="_blank"
+                  rel="noopener noreferrer">Rappi</a
+                >.
+              </p>
+            </span>
+            <span class="animate">
+              <p>
+                Outside of work, I volunteer <strong>tutoring</strong> university students
+                in programming, databases, and testing. That's why I created this blog:
+                a resource for everyone I've tutored and for the
+                <strong> Spanish-speaking</strong> software engineering community.
               </p>
             </span>
           </article>
@@ -80,7 +81,7 @@ const projects = (await getCollection("projects"))
             <h2 class="font-semibold text-black dark:text-white">
               Latest posts
             </h2>
-            <Link href="/blog"> See all posts </Link>
+            <Link href="/blog/"> See all posts </Link>
           </div>
           <ul class="not-prose flex flex-col gap-4">
             {
@@ -98,7 +99,7 @@ const projects = (await getCollection("projects"))
             <h2 class="font-semibold text-black dark:text-white">
               Recent projects
             </h2>
-            <Link href="/projects"> See all projects </Link>
+            <Link href="/projects/"> See all projects </Link>
           </div>
           <ul class="not-prose flex flex-col gap-4">
             {
@@ -147,6 +148,6 @@ const projects = (await getCollection("projects"))
           </ul>
         </section>
       </div>
-    </aside>
+    </div>
   </Container>
 </Layout>

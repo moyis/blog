@@ -34,6 +34,6 @@ test.describe("blog post page", () => {
     const backLink = page.getByRole("link", { name: "Volver al blog" });
     await expect(backLink).toBeVisible();
     await backLink.click();
-    await expect(page).toHaveURL("/blog");
+    await expect(page).toHaveURL("/blog/");
   });
 });

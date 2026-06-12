@@ -19,12 +19,22 @@ export function init(): void {
   }
 
   for (const codeBlock of codeBlocks) {
+    // Skip blocks already processed on a prior `init()`. Without this, re-running
+    // on `astro:after-swap` re-wraps each `<pre>` and appends a second copy
+    // button. Freshly navigated pages have new `<pre>` nodes, so they process once.
+    if (codeBlock.dataset.copyReady) {
+      continue;
+    }
+    codeBlock.dataset.copyReady = "true";
+
     const wrapper = document.createElement("div");
     wrapper.style.position = "relative";
 
     const copyButton = document.createElement("button");
     copyButton.innerText = copyButtonLabel;
     copyButton.classList.add("copy-code");
+    copyButton.setAttribute("type", "button");
+    copyButton.setAttribute("aria-label", "Copiar código");
 
     codeBlock.setAttribute("tabindex", "0");
     codeBlock.appendChild(copyButton);

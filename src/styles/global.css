@@ -7,6 +7,10 @@
 @theme {
   --font-sans: var(--font-blog);
   --font-mono: var(--font-code);
+
+  /* z-index scale: header < skip-link < native dialog top-layer */
+  --z-header: 50;
+  --z-skip-link: 60;
 }
 
 /*
@@ -52,7 +56,7 @@
   }
 
   header {
-    @apply fixed top-0 right-0 left-0 z-50 py-6;
+    @apply fixed top-0 right-0 left-0 z-[var(--z-header)] py-6;
     @apply bg-neutral-100/75 dark:bg-neutral-900/75;
     @apply saturate-200 backdrop-blur-xs;
   }
@@ -84,13 +88,49 @@
   }
 }
 
+/*
+  Interactive ghost surface: the site's signature flat control treatment.
+  Hairline border, faint hover/focus wash, text resolves to full ink, full
+  light/dark parity. Composable with layout classes (rounded, padding, flex)
+  and an optional base background (e.g. the header search button).
+*/
+@utility ghost-surface {
+  @apply border border-black/15 transition-colors duration-300 ease-in-out;
+  @apply hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black;
+  @apply dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white;
+}
+
 .animate {
-  @apply -translate-y-3 opacity-0;
   @apply transition-all duration-300 ease-out;
 }
 
-.animate.show {
+html.js .animate {
+  @apply -translate-y-3 opacity-0;
+}
+
+html.js .animate.show {
   @apply translate-y-0 opacity-100;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .animate,
+  html.js .animate.show,
+  .animate,
+  .animate.show {
+    opacity: 1;
+    transform: none;
+    translate: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 html #back-to-top {
@@ -194,11 +234,11 @@ pre[class*="language-"] {
 
 /* copy code button on codeblocks */
 .copy-code {
-  @apply absolute top-3 right-3 grid size-9 place-content-center rounded-sm border border-black/15 bg-neutral-100 text-center duration-300 ease-in-out dark:border-white/20 dark:bg-neutral-900;
+  @apply absolute top-3 right-3 grid size-11 place-content-center rounded-sm border border-black/15 bg-neutral-100 text-center duration-300 ease-in-out dark:border-white/20 dark:bg-neutral-900;
 }
 
 .copy-code:hover {
-  @apply bg-[#E9E9E9] transition-colors dark:bg-[#232323];
+  @apply bg-neutral-200 transition-colors dark:bg-neutral-800;
 }
 
 .copy-code:active {

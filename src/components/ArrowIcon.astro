@@ -1,0 +1,48 @@
+---
+/*
+  Animated directional arrow. The horizontal line draws itself in (scale-x)
+  and the chevron slides home on the parent's `group-hover` / `group-focus-visible`.
+  The parent must be `group relative`; the icon positions itself absolutely.
+*/
+type Props = {
+  direction?: "right" | "left" | "up";
+  size?: 4 | 5;
+};
+
+const { direction = "right", size = 5 } = Astro.props;
+
+const isRight = direction === "right";
+const sizeClass = size === 5 ? "size-5" : "size-4";
+const lineTranslate = size === 5 ? "translate-x-3" : "translate-x-2";
+const posClass = isRight ? "right-2" : "left-2";
+const rotateClass = direction === "up" ? "rotate-90" : "";
+const chevronTranslate = isRight ? "-translate-x-1" : "translate-x-1";
+const points = isRight ? "12 5 19 12 12 19" : "12 5 5 12 12 19";
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  class:list={[
+    "absolute top-1/2 -translate-y-1/2 fill-none stroke-current stroke-2",
+    posClass,
+    sizeClass,
+    rotateClass,
+  ]}
+>
+  <line
+    x1="5"
+    y1="12"
+    x2="19"
+    y2="12"
+    class:list={[
+      lineTranslate,
+      "scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100",
+    ]}></line>
+  <polyline
+    points={points}
+    class:list={[
+      chevronTranslate,
+      "transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0",
+    ]}></polyline>
+</svg>
