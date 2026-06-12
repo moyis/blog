@@ -6,7 +6,14 @@ function onScroll(): void {
   }
 }
 
+let scrollListenerWired = false;
+
 export function init(): void {
+  // Keep the initial sync each call so `.scrolled` is correct after navigation.
   onScroll();
-  document.addEventListener("scroll", onScroll);
+  // The scroll listener is document-level and persists across swaps; attach once.
+  if (!scrollListenerWired) {
+    scrollListenerWired = true;
+    document.addEventListener("scroll", onScroll, { passive: true });
+  }
 }

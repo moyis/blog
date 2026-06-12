@@ -39,6 +39,12 @@ export const PROJECTS: Metadata = {
     "A collection of my projects with links to repositories and live demos.",
 };
 
+export const EXPERIENCE: Metadata = {
+  TITLE: "Experience",
+  DESCRIPTION:
+    "Fausto Moya's software engineering career: building scalable backend systems across fintech, logistics, and e-commerce at companies from startups to global platforms.",
+};
+
 export const SOCIALS: Socials = [
   {
     NAME: "GitHub",
@@ -56,7 +62,7 @@ export const WORK_EXPERIENCE: WorkExperience = [
     role: "Software Engineer",
     technologies: ["Kotlin", "Spring", "MongoDB", "Kafka"],
     description:
-      "At Ahold Delhaize, I led the modernization of the workforce management tool, building a new integration using modern languages and techniques. I spearheaded efforts to improve code quality, promoting good coding practices and a test-driven development mindset.\nI played a key role in helping the team adopt agile methodologies, improving meeting efficiency and sharing agile knowledge to streamline processes. By fostering close collaboration between the business and development teams, I enabled better requirements gathering and greater ownership of projects.",
+      "I led the modernization of the workforce management tool, building a new integration with modern languages and techniques. I drove improvements in code quality, promoting good coding practices and a test-driven development mindset.\nI helped the team adopt agile methodologies, improving meeting efficiency and sharing agile knowledge to streamline processes. By fostering close collaboration between the business and development teams, I enabled better requirements gathering and greater ownership of projects.",
     start: new Date("2024-08-01"),
     end: null,
     link: "",
@@ -74,7 +80,7 @@ export const WORK_EXPERIENCE: WorkExperience = [
       "Github Actions",
     ],
     description:
-      "I led the design and implementation of a Trade Lane reporting and optimization tool, significantly enhancing data analysis and reporting capabilities. I optimized API response times, achieving a uniform 200 milliseconds for all data sets, compared to previous times of 2 seconds for small sets and 10 seconds for large sets.\nI successfully migrated 29 services to AWS, establishing infrastructure as code and implementing new CI/CD pipelines that resulted in a 30% reduction in operational costs. Additionally, I reduced deployment times by 25% through enhancements to the testing suite, GitHub Actions pipeline, and AWS Fargate integration, ensuring faster and more efficient software delivery.",
+      "I led the design and implementation of a Trade Lane reporting and optimization tool. I optimized API response times to a uniform 200 milliseconds for all data sets, down from 2 seconds for small sets and 10 seconds for large sets.\nI migrated 29 services to AWS, establishing infrastructure as code and new CI/CD pipelines that cut operational costs by 30%. I also reduced deployment times by 25% through improvements to the testing suite, the GitHub Actions pipeline, and AWS Fargate integration.",
     start: new Date("2022-05-01"),
     end: new Date("2024-08-01"),
     link: "",
@@ -84,7 +90,7 @@ export const WORK_EXPERIENCE: WorkExperience = [
     role: "Software Engineer",
     technologies: ["Java", "Kotlin", "SparkJava", "Lucene", "SQL"],
     description:
-      "As a Software Engineer at Mercado Libre, I led the development of innovative solutions that played a key role in the product's success. I designed and implemented scalable, robust, and maintainable systems that exceeded customer expectations, directly contributing to the company's growth. By utilizing modern technologies and agile methodologies, I consistently delivered high-quality results.\nThrough collaboration with cross-functional teams, we established and enforced best practices, striving for excellence in performance and continuous improvement. Notably, I improved store refresh speed by 50%, resulting in faster store indexing and a better customer experience.",
+      "I designed and implemented scalable, maintainable systems using modern technologies and agile methodologies. Working with cross-functional teams, we established and enforced best practices focused on performance and continuous improvement.\nNotably, I improved store refresh speed by 50%, resulting in faster store indexing and a better customer experience.",
     start: new Date("2021-05-01"),
     end: new Date("2022-05-01"),
     link: "",
@@ -101,7 +107,7 @@ export const WORK_EXPERIENCE: WorkExperience = [
       "AWS DynamoDB",
     ],
     description:
-      "As a Java Software Engineer at Ualá, I contributed to the development of robust and scalable software solutions that adhered to the highest industry standards. I leveraged modern technologies, including a full serverless infrastructure in AWS, and worked closely with my team using agile methodologies to deliver high-quality projects.\nA key part of my role was defining development standards and best practices to optimize the team's performance. I wrote clean and efficient code to ensure the optimal functioning of our solutions, which directly impacted Ualá's success. Throughout my experience, I deepened my knowledge of cutting-edge technologies and gained valuable insights into the software development process, consistently delivering results that exceeded expectations.",
+      "As a Java Software Engineer, I built scalable software on a full serverless infrastructure in AWS, working with my team using agile methodologies.\nI helped define development standards and best practices to improve the team's performance, and wrote clean, efficient code to keep our solutions running reliably.",
     start: new Date("2020-09-01"),
     end: new Date("2021-05-01"),
     link: "",
@@ -111,7 +117,7 @@ export const WORK_EXPERIENCE: WorkExperience = [
     role: "Software Engineer",
     technologies: ["Kotlin", "Spring", "Postgres", "ActiveMQ", "RxJava"],
     description:
-      "As a Kotlin Software Engineer at Rappi, I was part of a high-performing team that delivered innovative and efficient software solutions. My role involved developing new features, improving code, and fixing bugs, while collaborating closely with Scrum Masters and Project Managers to keep projects on track. I played a key role in integrating the app with various service providers, enabling offerings like Home Services, Video Conference Doctors, Games, and Sports Betting.\nIn addition to my development work, I provided technical guidance to my colleagues and mentored new team members. My contributions helped the team exceed expectations and positively impacted the development of scalable and robust software solutions for Rappi.",
+      "As a Kotlin Software Engineer, I developed new features, improved existing code, and fixed bugs, collaborating closely with Scrum Masters and Project Managers to keep projects on track. I integrated the app with various service providers, enabling offerings like Home Services, Video Conference Doctors, Games, and Sports Betting.\nAlongside my development work, I provided technical guidance to colleagues and mentored new team members.",
     start: new Date("2019-08-01"),
     end: new Date("2020-09-01"),
     link: "",

@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("should display the All Tags heading", async ({ page }) => {
   await page.goto("/tags");
   await expect(
-    page.getByRole("heading", { name: "All Tags" }),
+    page.getByRole("heading", { name: "Todos los tags" }),
   ).toBeVisible();
 });
 
@@ -28,7 +28,7 @@ test("should display filtered posts on tag detail page", async ({ page }) => {
   const href = await firstTag.getAttribute("href");
   await page.goto(href!);
   await expect(
-    page.getByRole("heading", { name: /Posts tagged with/ }),
+    page.getByRole("heading", { name: /Publicaciones con el tag/ }),
   ).toBeVisible();
   const posts = page.locator('a[href^="/blog/"]');
   expect(await posts.count()).toBeGreaterThan(0);

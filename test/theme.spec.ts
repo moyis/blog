@@ -6,7 +6,7 @@ test.describe("Theme persistence", () => {
     await page.getByRole("button", { name: "Dark theme" }).click();
     await expect(page.locator("html")).toHaveClass(/dark/);
     await page.getByRole("link", { name: "experience" }).click();
-    await expect(page).toHaveURL("/experience");
+    await expect(page).toHaveURL("/experience/");
     await expect(page.locator("html")).toHaveClass(/dark/);
   });
 
@@ -24,7 +24,7 @@ test.describe("Theme persistence", () => {
     await page.getByRole("button", { name: "Light theme" }).click();
     await expect(page.locator("html")).not.toHaveClass(/dark/);
     await page.getByRole("link", { name: "experience" }).click();
-    await expect(page).toHaveURL("/experience");
+    await expect(page).toHaveURL("/experience/");
     await expect(page.locator("html")).not.toHaveClass(/dark/);
   });
 });

@@ -29,12 +29,17 @@ const years = Object.keys(posts).sort(
 
 <Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION} lang="es">
   <Container>
-    <aside data-pagefind-ignore>
+    <div data-pagefind-ignore>
       <h1 class="animate text-3xl font-semibold text-black dark:text-white">
         Blog
       </h1>
       <div class="space-y-10">
         <div class="space-y-4">
+          {years.length === 0 && (
+            <p class="animate text-black/60 dark:text-white/60">
+              Aún no hay publicaciones. Vuelve pronto.
+            </p>
+          )}
           {
             years.map((year) => (
               <section class="animate space-y-4">
@@ -55,6 +60,6 @@ const years = Object.keys(posts).sort(
           }
         </div>
       </div>
-    </aside>
+    </div>
   </Container>
 </Layout>

@@ -39,13 +39,13 @@ test("has a link that redirects to my email address", async ({ page }) => {
 test("has a link that redirects to my blog", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("link", { name: "See all posts" }).click();
-  await expect(page).toHaveURL("/blog");
+  await expect(page).toHaveURL("/blog/");
 });
 
 test("has a link that redirects to my projects", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("link", { name: "See all projects" }).click();
-  await expect(page).toHaveURL("/projects");
+  await expect(page).toHaveURL("/projects/");
 });
 
 test("nav bar is visible", async ({ page }) => {

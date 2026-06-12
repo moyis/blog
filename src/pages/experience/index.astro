@@ -1,5 +1,5 @@
 ---
-import { HOME, WORK_EXPERIENCE } from "@consts";
+import { EXPERIENCE, WORK_EXPERIENCE } from "@consts";
 import Container from "@components/Container.astro";
 import Layout from "@layouts/Layout.astro";
 
@@ -12,9 +12,9 @@ function formatDate(date: Date | null): string {
 }
 ---
 
-<Layout title={HOME.TITLE} description={HOME.DESCRIPTION} lang="en">
+<Layout title={EXPERIENCE.TITLE} description={EXPERIENCE.DESCRIPTION} lang="en">
   <Container>
-    <aside data-pagefind-ignore>
+    <div data-pagefind-ignore>
       <section class="animate space-y-6">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
           <h1 class="text-3xl font-semibold text-black dark:text-white">
@@ -25,9 +25,9 @@ function formatDate(date: Date | null): string {
       {
         WORK_EXPERIENCE.map((work) => (
           <article class="animate space-y-4 py-6">
-            <span class="text-xl font-semibold text-black dark:text-white">
+            <h2 class="text-xl font-semibold text-black dark:text-white">
               <strong>{work.role}</strong> @ {work.company}
-            </span>
+            </h2>
             <div class="text-sm opacity-75">
               From {formatDate(work.start)} to {formatDate(work.end)}
             </div>
@@ -41,6 +41,6 @@ function formatDate(date: Date | null): string {
           </article>
         ))
       }
-    </aside>
+    </div>
   </Container>
 </Layout>

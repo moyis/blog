@@ -56,6 +56,8 @@ function updateThemeButtons(): void {
   }
 }
 
+let mediaListenerWired = false;
+
 export function init(): void {
   updateThemeButtons();
 
@@ -80,11 +82,17 @@ export function init(): void {
     updateThemeButtons();
   });
 
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (event) => {
-      if (localStorage.theme === "system") {
-        toggleTheme(event.matches);
-      }
-    });
+  // The matchMedia listener is window-level and persists across swaps, so
+  // attach it only once. The theme buttons above live in the (non-persisted)
+  // Footer, which is re-rendered each swap, so they must keep re-binding.
+  if (!mediaListenerWired) {
+    mediaListenerWired = true;
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (event) => {
+        if (localStorage.theme === "system") {
+          toggleTheme(event.matches);
+        }
+      });
+  }
 }

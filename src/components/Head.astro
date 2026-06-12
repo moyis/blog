@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import { Font } from "astro:assets";
-import { getImagePath } from "astro-opengraph-images";
+import { getImagePath } from "@utils";
 
 interface Props {
   title: string;
@@ -52,16 +52,22 @@ const image = getImagePath({ url, site });
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<!-- PageFind -->
-<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
-<script is:inline src="/pagefind/pagefind-ui.js" defer></script>
+<!-- Pagefind UI (CSS + JS, ~26KB) is lazy-loaded on first search-open in
+     scripts/pagefind.ts, not eagerly here: the search modal is opened rarely,
+     so every page no longer pays for it on initial load. -->
 <ClientRouter />
 <Font cssVariable="--font-blog" preload />
-<Font cssVariable="--font-code" preload />
+<!-- Geist Mono is only painted in code blocks (article pages, below the fold).
+     Emit its @font-face but don't preload it: preloading pulled ~70KB of mono
+     onto every code-less page (home, experience, projects, tags), competing with
+     the critical Sans font for LCP. Without preload the browser fetches it only
+     when a code block actually renders. -->
+<Font cssVariable="--font-code" />
 
 <!-- FOUC prevention: set dark class before first paint and on View Transition swaps -->
 <script is:inline>
   (function () {
+    document.documentElement.classList.add("js");
     function getThemePreference() {
       var theme = localStorage.getItem("theme");
       var prefersDark = window.matchMedia(

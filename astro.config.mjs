@@ -5,9 +5,38 @@ import pagefind from "astro-pagefind";
 import { defineConfig, fontProviders } from "astro/config";
 import fs from "node:fs";
 
-import opengraphImages from "astro-opengraph-images";
-import { ogImage } from "./src/components/OgImage";
 import rehypePrismPlus from "rehype-prism-plus";
+
+// OG images are build-time social-card artifacts (never rendered in the page UI).
+// astro-opengraph-images pulls in @resvg/resvg-js, a native CJS addon that throws
+// "require is not defined" under Astro's dev/SSR ESM module runner. Importing it
+// statically evaluates resvg at config-load time even in dev, so load it lazily
+// and only for `astro build`. `getImagePath` (in Head.astro) is a pure path helper
+// with no resvg dependency, so og:image meta tags still resolve in dev.
+const isBuild = process.argv.includes("build");
+const ogImagesIntegration = isBuild
+  ? await (async () => {
+      const { default: opengraphImages } = await import(
+        "astro-opengraph-images"
+      );
+      const { ogImage } = await import("./src/components/OgImage");
+      return opengraphImages({
+        options: {
+          fonts: [
+            {
+              name: "Geist Sans",
+              weight: 400,
+              style: "normal",
+              data: fs.readFileSync(
+                "node_modules/@fontsource/geist-sans/files/geist-sans-latin-400-normal.woff",
+              ),
+            },
+          ],
+        },
+        render: ogImage,
+      });
+    })()
+  : null;
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,22 +48,15 @@ export default defineConfig({
   integrations: [
     sitemap(),
     mdx(),
-    pagefind(),
-    opengraphImages({
-      options: {
-        fonts: [
-          {
-            name: "Geist Sans",
-            weight: 400,
-            style: "normal",
-            data: fs.readFileSync(
-              "node_modules/@fontsource/geist-sans/files/geist-sans-latin-400-normal.woff",
-            ),
-          },
-        ],
-      },
-      render: ogImage,
-    }),
+    // Force a single Spanish index. The site is bilingual (en home/projects/
+    // experience, es blog/tags), so by default pagefind builds separate per-lang
+    // indexes and the search UI only queries the one matching the current page's
+    // <html lang> -- hiding every Spanish blog post from search opened on an en
+    // page. `forceLanguage` indexes the whole site as one (es) index. The Node API
+    // used by this integration ignores PAGEFIND_FORCE_LANGUAGE, so it must be set
+    // here, not via env var.
+    pagefind({ indexConfig: { forceLanguage: "es" } }),
+    ...(ogImagesIntegration ? [ogImagesIntegration] : []),
   ],
   vite: {
     plugins: [tailwindcss()],
@@ -66,7 +88,10 @@ export default defineConfig({
         "connect-src 'self'",
       ],
       scriptDirective: {
-        resources: ["'self'", "https://giscus.app"],
+        // 'wasm-unsafe-eval' lets Pagefind compile its search-index WebAssembly.
+        // It is the narrow WASM token (not general 'unsafe-eval'): it permits
+        // WebAssembly.instantiate only, no eval()/new Function() on JS strings.
+        resources: ["'self'", "'wasm-unsafe-eval'", "https://giscus.app"],
       },
       styleDirective: {
         resources: ["'self'", "'unsafe-inline'"],
