@@ -19,7 +19,7 @@
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.3",
     "@fontsource/geist-sans": "5.2.5",
-    "@tailwindcss/vite": "4.3.0",
+    "@tailwindcss/vite": "4.3.1",
     "astro": "6.4.6",
     "astro-opengraph-images": "1.16.1",
     "astro-pagefind": "2.0.0",
