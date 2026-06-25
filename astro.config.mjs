@@ -1,3 +1,4 @@
+import { unified } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
@@ -62,8 +63,12 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   markdown: {
+    // syntaxHighlight stays at markdown level (read from shared config by the
+    // processor); rehype plugins move onto `unified()` per the Astro 7 deprecation.
     syntaxHighlight: false,
-    rehypePlugins: [rehypePrismPlus],
+    processor: unified({
+      rehypePlugins: [rehypePrismPlus],
+    }),
   },
   image: {
     responsiveStyles: true,
