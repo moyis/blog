@@ -23,7 +23,7 @@
     "@tailwindcss/vite": "4.3.2",
     "astro": "7.0.6",
     "astro-opengraph-images": "1.16.1",
-    "astro-pagefind": "2.0.0",
+    "astro-pagefind": "2.0.1",
     "rehype-prism-plus": "2.0.2",
     "tailwindcss": "4.3.2",
     "tw-to-css": "0.0.12",
