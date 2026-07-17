@@ -25,7 +25,7 @@
     "astro-opengraph-images": "1.16.1",
     "astro-pagefind": "2.0.1",
     "rehype-prism-plus": "2.0.2",
-    "tailwindcss": "4.3.2",
+    "tailwindcss": "4.3.3",
     "tw-to-css": "0.0.12",
     "typescript": "6.0.3"
   },
