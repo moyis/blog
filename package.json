@@ -35,12 +35,12 @@
     "@eslint/markdown": "8.0.3",
     "@playwright/test": "1.63.0",
     "@tailwindcss/typography": "0.5.20",
-    "@types/react": "19.2.18",
+    "@types/react": "19.3.0",
     "dotenv": "17.4.2",
     "eslint": "10.10.0",
     "globals": "17.12.0",
     "pagefind": "1.5.2",
-    "react": "19.2.8",
+    "react": "19.3.0",
     "sharp": "0.35.4",
     "typescript-eslint": "8.70.0"
   }
